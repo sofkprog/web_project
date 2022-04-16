@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+<h3 align="left">Товары</h3>
+<a class="btn btn-light" href="/up" role="button">↑</a>
+<a class="btn btn-light" href="/down" role="button">↓</a>
+</div>
+<br>
+{% for item in goods%}
+<div class="col-md6 border rounded" style="width: 800px">
+    <br>
+    <div>
+        <a class="btn btn-lg" role="button"><img src={{item.image}} title={{item.title}} style="width:150px;height:150px;align:left"></a>
+       <big style="margin-left:5px"><a class="btn btn-lg" href="/wide_good/{{item.id}}" role="button">{{item.title}}</a></big>
+        <h5 style="margin-left:20px">{{item.price}} руб</h5>
+        </div>
+    <p style="hyphens:auto;word-wrap: break-word;margin-left:20px">{{item.content}}</p>
+    <br>
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="myModal" class="modal" aria-labelledby="myModalLabel" tabindex="-1">
+    <div class="modal-dialog" style="width:600px">
+        <div class="modal-content">
+            <div class="modal-body">
+                <a class="btn btn-close" href="/wide_good/{{id}}"><h4 style="align:right">×</h4></a>
+                <img src={{image}} style="width:470px;height:600px;align:left">
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

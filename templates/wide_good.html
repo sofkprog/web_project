@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<p>
+<u align="left" style="text-decoration:none; margin-left:20px"><font size="5">Информация о товаре</font></u>
+</p>
+<br>
+{% for item in news%}
+<div class="col-md6 border rounded">
+    <br>
+    <p>
+        <u style="margin-left:20px;text-decoration:none"><font size="5">{{item.title}}</font></u>
+        {% if item.is_private == 0%}
+        {% if current_user != item.user and current_user.is_authenticated%}
+        <a href="/good_success/{{item.id}}" class="btn btn-success" style="margin-left:800px">
+            Добавить в избанное
+         </a>
+        {%elif current_user.is_authenticated == False%}
+        <a href="/login" class="btn btn-success" style="margin-left:800px">
+            Добавить в избанное
+         </a>
+        {%endif%}
+        {%else%}
+        <a href="/corzina_delete/{{item.id}}" class="btn btn-danger" style="margin-left:800px">
+            Удалить из избранного
+         </a>
+        {%endif%}
+    <br>
+    </p>
+    <div>
+        <a class="btn btn-lg" href="/goods_photo/{{item.id}}" role="button"><img src={{item.image}} title={{item.title}} style="width:300px;height:300px;align:left"></a>
+        <br>
+        <h5 style="margin-left:20px">{{item.price}} руб</h5>
+        </div>
+    <p style="hyphens:auto;word-wrap: break-word;margin-left:20px">{{item.content}}</p>
+    <br>
+    <div>
+        <u><a class="btn btn-lg" href="/user_profile/{{id}}" role="button"><ins>{{name}}</ins></a></u>
+        <p style="margin-left:10px">{{item.created_date}}</p>
+    </div>
+    {% if current_user.is_authenticated and current_user == item.user %}
+    <div>
+        <a href="/goods/{{ item.id }}" class="btn btn-warning">
+            Изменить
+        </a>
+        <a href="/goods_delete/{{ item.id }}" class="btn btn-danger">
+            Удалить
+        </a>
+    </div>
+{% endif %}
+    <br>
+<br>
+</div>
+<br>
+{% endfor %}
+{% endblock %}

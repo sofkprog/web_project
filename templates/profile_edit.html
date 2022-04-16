@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="myModal" class="modal" aria-labelledby="myModalLabel" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Редактирование профиля</h5>
+              <a class="btn btn-close" href="/"><h4>×</h4></a>
+            </div>
+            <div class="modal-body">
+              <h5>Добавьте значения в те поля, которые хотите изменить</h5>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name(class="form-control") }}<br>
+    </p>
+    <p>
+        {{ form.email.label }}<br>
+        {{ form.email(class="form-control") }}<br>
+    </p>
+    <p>
+        {{ form.image.label }}<br>
+        {{ form.image(class="form-control") }}<br>
+    </p>
+
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>           </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

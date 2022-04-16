@@ -1,0 +1,21 @@
+{% extends "profile.html" %}
+
+{% block content %}
+<div id="myModal" class="modal" aria-labelledby="myModalLabel" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Выйти из профиля</h5>
+              <a class="btn btn-close" href="/"><h4>×</h4></a>
+            </div>
+            <div class="modal-body">
+<br>
+<h4 align="center">{{current_user.name}}, хотите выйти?</h4>
+<br>
+                <p class="fig" align="center"><a style="align:center" class="btn btn-lg" href="/logout" role="button"><font color="red">Да</font></a></p>
+<p class="fig" align="center"><a style="align:center" class="btn btn-lg" href="/profile" role="button">Остаться</a></p>
+</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

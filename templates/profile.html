@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="myModal" class="modal" aria-labelledby="myModalLabel" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Профиль</h5>
+              <a class="btn btn-close" href="/"><h4>×</h4></a>
+            </div>
+            <div class="modal-body">
+<br>
+                <p class="fig" align="center"><a href="/user_photo/{{current_user.id}}"><img src={{current_user.image}} title={{current_user.name}} style="width:150px;height:150px;border-radius: 50%"></a></p>
+<div align="center">{{current_user.name}}</div>
+<div align="center">{{current_user.email}}</div>
+<br>
+<p class="fig" align="center"><a style="align:center" href="/profile_edit" class="btn btn-lg" href="/profile_edit" role="button">Редактировать профиль</a></p>
+<p class="fig" align="center"><a style="align:center" class="btn btn-lg" href="/my_goods" role="button">Мои товары</a></p>
+<p class="fig" align="center"><a style="align:center" class="btn btn-lg" href="/corzina" role="button">Избранное</a></p>
+<p class="fig" align="center"><a style="align:center" class="btn btn-lg" href="/submit" role="button"><font color="red">Выйти</font></a></p>
+</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
