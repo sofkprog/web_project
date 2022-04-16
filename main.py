@@ -13,6 +13,7 @@ from flask_restful import Api
 from data import goods_resources
 from sqlalchemy import desc
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
@@ -310,7 +311,6 @@ def main():
     # для одного объекта
     api.add_resource(goods_resources.NewsResource, '/api/goods/<int:news_id>')
     app.run(port=8080, host='127.0.0.1')
-
 
 if __name__ == '__main__':
     main()
